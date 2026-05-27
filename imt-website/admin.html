@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin — Institute of Modern Technology</title>
+  <link rel="stylesheet" href="assets/css/admin.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- LOGIN PAGE -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="login-page">
+  <div class="login-bg-deco"></div>
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="login-logo-icon">🏛️</div>
+      <h1>Institute of Modern Technology</h1>
+      <p>Admin Control Panel</p>
+    </div>
+    <h2 class="login-title">Sign In</h2>
+    <p class="login-sub">Enter your admin email and password</p>
+    <div class="login-error" id="login-error">Invalid email or password.</div>
+    <div class="login-form">
+      <div class="form-group">
+        <label for="login-email">Email Address</label>
+        <input type="email" id="login-email" placeholder="admin@example.com" autocomplete="email" />
+      </div>
+      <div class="form-group">
+        <label for="login-pass">Password</label>
+        <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password" />
+      </div>
+      <button class="login-btn" id="login-btn" onclick="doLogin()">Sign In →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- DASHBOARD -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="dashboard">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-name">IMT Admin</div>
+      <div class="sidebar-brand-tag">Control Panel</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Overview</div>
+      <div class="sidebar-item active" data-panel="overview" onclick="showPanel('overview')">
+        <span class="si-icon">📊</span> Dashboard
+      </div>
+
+      <div class="nav-section-label">Content</div>
+      <div class="sidebar-item" data-panel="announcement" onclick="showPanel('announcement')">
+        <span class="si-icon">📢</span> Announcement Bar
+      </div>
+      <div class="sidebar-item" data-panel="gallery" onclick="showPanel('gallery')">
+        <span class="si-icon">🖼️</span> Gallery / Moments
+      </div>
+      <div class="sidebar-item" data-panel="posts" onclick="showPanel('posts')">
+        <span class="si-icon">📝</span> Posts & Blogs
+      </div>
+
+      <div class="nav-section-label">Settings</div>
+      <div class="sidebar-item" data-panel="sections" onclick="showPanel('sections')">
+        <span class="si-icon">⚙️</span> Section Visibility
+      </div>
+      <div class="sidebar-item" data-panel="contacts" onclick="showPanel('contacts')">
+        <span class="si-icon">✉️</span> Contact Submissions
+      </div>
+      <div class="sidebar-item" data-panel="legal" onclick="showPanel('legal')">
+        <span class="si-icon">📄</span> Privacy & Terms
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="logout-btn" onclick="doLogout()">🚪 Sign Out</button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+        <h1 class="admin-page-title" id="page-title">Dashboard</h1>
+      </div>
+      <div class="admin-user">
+        <div class="admin-avatar">A</div>
+        <div>
+          <div class="admin-name">Administrator</div>
+          <div class="admin-role">Institute of Modern Technology</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- ─── OVERVIEW PANEL ─────────────────────────────── -->
+      <div class="admin-panel active" id="panel-overview">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">🖼️</div>
+            <div>
+              <div class="stat-num" id="stat-gallery">—</div>
+              <div class="stat-label">Gallery Items</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green">📝</div>
+            <div>
+              <div class="stat-num" id="stat-posts">—</div>
+              <div class="stat-label">Published Posts</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon amber">✉️</div>
+            <div>
+              <div class="stat-num" id="stat-contacts">—</div>
+              <div class="stat-label">Contact Messages</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon purple">📢</div>
+            <div>
+              <div class="stat-num" id="stat-ann">—</div>
+              <div class="stat-label">Announcement Status</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div class="admin-card-title">Welcome to IMT Admin</div>
+          </div>
+          <div class="admin-card-body">
+            <p style="color:var(--text-mid);font-size:0.9rem;line-height:1.8">
+              Use the sidebar to manage your website content. You can upload gallery images,
+              publish posts and announcements, control the announcement bar, and manage which
+              sections are visible on the public website.
+            </p>
+            <br>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+              <button class="btn btn-primary-admin" onclick="showPanel('gallery')">➕ Add Gallery Image</button>
+              <button class="btn btn-accent"        onclick="showPanel('posts')">✏️ Publish New Post</button>
+              <button class="btn btn-outline-admin" onclick="showPanel('announcement')">📢 Manage Announcement</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── ANNOUNCEMENT PANEL ─────────────────────────── -->
+      <div class="admin-panel" id="panel-announcement">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div class="admin-card-title">Announcement Bar</div>
+            <button class="btn btn-primary-admin" onclick="saveAnnouncement()">💾 Save Changes</button>
+          </div>
+          <div class="admin-card-body">
+            <div class="admin-form">
+              <div class="field">
+                <label>Status</label>
+                <div class="toggle-wrap">
+                  <label class="toggle">
+                    <input type="checkbox" id="ann-enabled" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <span class="toggle-label">Enable Announcement Bar</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="ann-text-input">Announcement Text</label>
+                <input type="text" id="ann-text-input" placeholder="e.g. Hurry Up! Scholarship Program is Live. Apply Now!" />
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="ann-cta-text">CTA Button Text</label>
+                  <input type="text" id="ann-cta-text" placeholder="e.g. Apply Now" />
+                </div>
+                <div class="field">
+                  <label for="ann-url">CTA Button URL</label>
+                  <input type="text" id="ann-url" placeholder="e.g. https://..." />
+                </div>
+              </div>
+              <div class="field">
+                <label>Bar Background Color</label>
+                <div class="color-options">
+                  <div class="color-swatch selected" style="background:#0a1628" data-color="#0a1628" onclick="selectColor(this)"></div>
+                  <div class="color-swatch" style="background:#dc2626" data-color="#dc2626" onclick="selectColor(this)"></div>
+                  <div class="color-swatch" style="background:#16a34a" data-color="#16a34a" onclick="selectColor(this)"></div>
+                  <div class="color-swatch" style="background:#d97706" data-color="#d97706" onclick="selectColor(this)"></div>
+                  <div class="color-swatch" style="background:#1d4ed8" data-color="#1d4ed8" onclick="selectColor(this)"></div>
+                  <div class="color-swatch" style="background:#7c3aed" data-color="#7c3aed" onclick="selectColor(this)"></div>
+                  <div class="color-swatch" style="background:#0f766e" data-color="#0f766e" onclick="selectColor(this)"></div>
+                  <div class="color-swatch" style="background:#c8a97e" data-color="#c8a97e" onclick="selectColor(this)"></div>
+                  <input type="color" id="ann-custom-color" style="width:32px;height:32px;border-radius:6px;border:2px solid var(--border);cursor:pointer;padding:2px;" title="Custom Color" onchange="selectCustomColor(this.value)" />
+                </div>
+                <input type="hidden" id="ann-color" value="#0a1628" />
+              </div>
+              <div class="field">
+                <label>Text Color</label>
+                <div class="color-options">
+                  <div class="color-swatch selected" style="background:#ffffff;border:1.5px solid var(--border)" data-tc="#ffffff" onclick="selectTextColor(this)"></div>
+                  <div class="color-swatch" style="background:#0a1628" data-tc="#0a1628" onclick="selectTextColor(this)"></div>
+                  <div class="color-swatch" style="background:#c8a97e" data-tc="#c8a97e" onclick="selectTextColor(this)"></div>
+                </div>
+                <input type="hidden" id="ann-text-color" value="#ffffff" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── GALLERY PANEL ──────────────────────────────── -->
+      <div class="admin-panel" id="panel-gallery">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div class="admin-card-title">Add Gallery Image</div>
+            <button id="quickbtn-gallery" class="btn btn-outline-admin btn-sm"
+              onclick="quickToggleSection('gallery')" title="Toggle gallery visibility on the public site">
+              🔴 Hide Gallery Section
+            </button>
+          </div>
+          <div class="admin-card-body">
+            <div class="admin-form">
+              <div class="field-row">
+                <div class="field">
+                  <label for="gal-title">Image Title</label>
+                  <input type="text" id="gal-title" placeholder="e.g. Annual Technology Fair 2024" />
+                </div>
+                <div class="field">
+                  <label for="gal-date">Upload Date</label>
+                  <input type="date" id="gal-date" />
+                </div>
+              </div>
+              <div class="field">
+                <label>Upload Image (via Cloudinary)</label>
+                <div class="upload-zone" onclick="document.getElementById('gal-file').click()">
+                  <input type="file" id="gal-file" accept="image/*" onchange="previewImage(this, 'gal-preview')" />
+                  <div class="upload-icon">☁️</div>
+                  <div class="upload-text">Click to upload or drag & drop</div>
+                  <div class="upload-hint">PNG, JPG, WEBP up to 10MB</div>
+                </div>
+                <img class="upload-preview" id="gal-preview" alt="Preview" />
+              </div>
+              <button class="btn btn-primary-admin" onclick="addGalleryImage()">➕ Add to Gallery</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div class="admin-card-title">Gallery Images</div>
+            <span style="font-size:0.82rem;color:var(--text-light)" id="gal-count"></span>
+          </div>
+          <div class="admin-card-body" style="padding:0;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Title</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="gallery-table-body">
+                <tr><td colspan="4" style="text-align:center;padding:32px;color:var(--text-light)">Loading gallery...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── POSTS PANEL ────────────────────────────────── -->
+      <div class="admin-panel" id="panel-posts">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div class="admin-card-title" id="post-form-heading">Create New Post</div>
+            <button id="quickbtn-posts" class="btn btn-outline-admin btn-sm"
+              onclick="quickToggleSection('posts')" title="Toggle posts section visibility on the public site">
+              🔴 Hide Posts Section
+            </button>
+          </div>
+          <div class="admin-card-body">
+            <input type="hidden" id="edit-post-id" value="" />
+            <div class="admin-form">
+              <div class="field-row">
+                <div class="field">
+                  <label for="post-type">Post Type</label>
+                  <select id="post-type">
+                    <option value="blog">✍️ Blog</option>
+                    <option value="event">🎪 Event</option>
+                    <option value="announce">📢 Announcement</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="post-title">Title</label>
+                  <input type="text" id="post-title" placeholder="Post title..." />
+                </div>
+              </div>
+              <div class="field">
+                <label for="post-preview">Preview Text (shown on card)</label>
+                <input type="text" id="post-preview" placeholder="Short preview shown on the post card (optional)" />
+              </div>
+              <div class="field">
+                <label for="post-content">Full Content</label>
+                <textarea id="post-content" style="min-height:160px;" placeholder="Write the full post content here..."></textarea>
+              </div>
+              <div class="field" id="post-img-field">
+                <label>Thumbnail Image (optional, not for blogs)</label>
+                <div class="upload-zone" onclick="document.getElementById('post-file').click()">
+                  <input type="file" id="post-file" accept="image/*" onchange="previewImage(this, 'post-img-preview')" />
+                  <div class="upload-icon">🖼️</div>
+                  <div class="upload-text">Click to upload thumbnail</div>
+                  <div class="upload-hint">PNG, JPG, WEBP — optional</div>
+                </div>
+                <img class="upload-preview" id="post-img-preview" alt="Preview" />
+                <input type="hidden" id="post-existing-img" value="" />
+              </div>
+              <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <button class="btn btn-primary-admin" onclick="savePost()">💾 Publish Post</button>
+                <button class="btn btn-outline-admin"  onclick="resetPostForm()">✕ Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div class="admin-card-title">All Posts</div>
+            <span style="font-size:0.82rem;color:var(--text-light)" id="posts-count"></span>
+          </div>
+          <div class="admin-card-body" style="padding:0;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Title</th>
+                  <th>Preview</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="posts-table-body">
+                <tr><td colspan="4" style="text-align:center;padding:32px;color:var(--text-light)">Loading posts...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── SECTION VISIBILITY ─────────────────────────── -->
+      <div class="admin-panel" id="panel-sections">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div class="admin-card-title">Section Visibility</div>
+            <button class="btn btn-primary-admin" onclick="saveSectionSettings()">💾 Save All Settings</button>
+          </div>
+          <div class="admin-card-body">
+            <p style="font-size:0.86rem;color:var(--text-mid);margin-bottom:8px;">
+              Toggle which sections appear on the public website. After saving, visitors will see the updated layout instantly on page refresh.
+            </p>
+            <p style="font-size:0.8rem;color:var(--text-light);margin-bottom:28px;">
+              💡 <strong>Tip:</strong> You can also toggle Gallery and Posts directly from their own panels using the quick-toggle button.
+            </p>
+
+            <div class="section-toggles">
+
+              <!-- Announcement Bar -->
+              <div class="section-toggle-card">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="font-size:1.4rem;">📢</span>
+                  <div class="section-toggle-title">Announcement Bar</div>
+                </div>
+                <div class="section-toggle-desc">The thin coloured bar at the very top of the website. Use it for urgent notices, scholarship deadlines, or event alerts.</div>
+                <div style="margin-top:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                  <label class="toggle">
+                    <input type="checkbox" id="vis-announcement" checked
+                      onchange="updateToggleLabel('vis-announcement')" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <span class="toggle-label" id="label-vis-announcement"
+                    style="font-size:0.86rem;font-weight:600;color:var(--success);">🟢 Visible on site</span>
+                </div>
+              </div>
+
+              <!-- Gallery -->
+              <div class="section-toggle-card">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="font-size:1.4rem;">🖼️</span>
+                  <div class="section-toggle-title">Gallery / Moments</div>
+                </div>
+                <div class="section-toggle-desc">The 3-column photo gallery showing institute events, activities, and memories. Hidden automatically if no images are uploaded.</div>
+                <div style="margin-top:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                  <label class="toggle">
+                    <input type="checkbox" id="vis-gallery" checked
+                      onchange="updateToggleLabel('vis-gallery')" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <span class="toggle-label" id="label-vis-gallery"
+                    style="font-size:0.86rem;font-weight:600;color:var(--success);">🟢 Visible on site</span>
+                </div>
+              </div>
+
+              <!-- Posts -->
+              <div class="section-toggle-card">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="font-size:1.4rem;">📝</span>
+                  <div class="section-toggle-title">Recent Posts</div>
+                </div>
+                <div class="section-toggle-desc">The blog, event, and announcement cards section. Toggle off to temporarily hide all posts without deleting them.</div>
+                <div style="margin-top:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                  <label class="toggle">
+                    <input type="checkbox" id="vis-posts" checked
+                      onchange="updateToggleLabel('vis-posts')" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <span class="toggle-label" id="label-vis-posts"
+                    style="font-size:0.86rem;font-weight:600;color:var(--success);">🟢 Visible on site</span>
+                </div>
+              </div>
+
+            </div><!-- /section-toggles -->
+
+            <div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--border);">
+              <button class="btn btn-primary-admin" onclick="saveSectionSettings()" style="min-width:180px;">
+                💾 Save All Settings
+              </button>
+              <span style="margin-left:14px;font-size:0.8rem;color:var(--text-light);">
+                Changes apply to the public site after visitors refresh.
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── CONTACT SUBMISSIONS ────────────────────────── -->
+      <div class="admin-panel" id="panel-contacts">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div class="admin-card-title">Contact Submissions</div>
+            <span style="font-size:0.82rem;color:var(--text-light)" id="contacts-count"></span>
+          </div>
+          <div class="admin-card-body" style="padding:0;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Subject</th>
+                  <th>Message</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="contacts-table-body">
+                <tr><td colspan="5" style="text-align:center;padding:32px;color:var(--text-light)">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── LEGAL CONTENT PANEL ──────────────────────────── -->
+      <div class="admin-panel" id="panel-legal">
+
+        <!-- Privacy Policy -->
+        <div class="admin-card" style="margin-bottom:24px;">
+          <div class="admin-card-header">
+            <div class="admin-card-title">🔒 Privacy Policy</div>
+            <button class="btn btn-primary-admin" onclick="saveLegal('privacy')">💾 Save Privacy Policy</button>
+          </div>
+          <div class="admin-card-body">
+            <div class="admin-form">
+              <div class="field-row">
+                <div class="field">
+                  <label for="privacy-title">Document Title</label>
+                  <input type="text" id="privacy-title" value="Privacy Policy" />
+                </div>
+                <div class="field">
+                  <label for="privacy-date">Effective Date</label>
+                  <input type="text" id="privacy-date" placeholder="e.g. April 2026" value="April 2026" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="privacy-html">Content (HTML supported — use &lt;h3&gt; for headings, &lt;p&gt; for paragraphs)</label>
+                <textarea id="privacy-html" style="min-height:280px;font-family:monospace;font-size:0.82rem;" placeholder="Enter the full Privacy Policy content here. HTML tags like &lt;h3&gt;, &lt;p&gt;, &lt;strong&gt;, &lt;ul&gt;, &lt;li&gt; are supported."></textarea>
+              </div>
+              <p style="font-size:0.78rem;color:var(--text-light);margin-top:8px;">
+                💡 Tip: Use <code>&lt;h3&gt;Section Title&lt;/h3&gt;</code> for headings and <code>&lt;p&gt;Your text&lt;/p&gt;</code> for paragraphs. The effective date will show automatically in the modal header and footer.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terms & Conditions -->
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div class="admin-card-title">⚖️ Terms & Conditions</div>
+            <button class="btn btn-primary-admin" onclick="saveLegal('terms')">💾 Save Terms</button>
+          </div>
+          <div class="admin-card-body">
+            <div class="admin-form">
+              <div class="field-row">
+                <div class="field">
+                  <label for="terms-title">Document Title</label>
+                  <input type="text" id="terms-title" value="Terms &amp; Conditions" />
+                </div>
+                <div class="field">
+                  <label for="terms-date">Effective Date</label>
+                  <input type="text" id="terms-date" placeholder="e.g. April 2026" value="April 2026" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="terms-html">Content (HTML supported)</label>
+                <textarea id="terms-html" style="min-height:280px;font-family:monospace;font-size:0.82rem;" placeholder="Enter the full Terms &amp; Conditions content here."></textarea>
+              </div>
+              <p style="font-size:0.78rem;color:var(--text-light);margin-top:8px;">
+                💡 Tip: Use <code>&lt;h3&gt;Section Title&lt;/h3&gt;</code> for headings. Saved content will appear in the popup on the public website immediately after visitors refresh.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /panel-legal -->
+
+    </div><!-- /admin-content -->
+  </main>
+</div><!-- /dashboard -->
+
+<!-- TOAST -->
+<div id="admin-toast"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- FIREBASE SDK + AUTH -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<script type="module">
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import {
+    getFirestore, collection, getDocs, addDoc, updateDoc, deleteDoc,
+    doc, query, orderBy, setDoc, limit
+  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  import {
+    getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+  // ── Real Firebase Config ──────────────────────────────────
+  const firebaseConfig = {
+    apiKey:            "AIzaSyBPJNy86aAv2B3jachXiCODWDVrRhkFQMY",
+    authDomain:        "imtweb.firebaseapp.com",
+    projectId:         "imtweb",
+    storageBucket:     "imtweb.firebasestorage.app",
+    messagingSenderId: "459377220353",
+    appId:             "1:459377220353:web:6a4246980883cfc80bd900",
+    measurementId:     "G-BH59V5EL4C"
+  };
+
+  const app  = initializeApp(firebaseConfig);
+  const db   = getFirestore(app);
+  const auth = getAuth(app);
+
+  // ── Expose Firestore helpers ──────────────────────────────
+  window._fs = {
+    collection, getDocs, addDoc, updateDoc, deleteDoc,
+    doc, query, orderBy, setDoc, limit,
+    db: () => db
+  };
+
+  // ── Expose Auth helpers ───────────────────────────────────
+  window._imt_auth = {
+    authInstance: auth,
+    signIn:  (email, pass) => signInWithEmailAndPassword(auth, email, pass),
+    signOut: ()            => signOut(auth),
+    onAuthStateChanged: (authInst, cb) => onAuthStateChanged(authInst, cb)
+  };
+
+  // ── Load data when dashboard opens ────────────────────────
+  window.firebaseReady = () => {
+    loadDashboardStats();
+    loadGalleryTable();
+    loadPostsTable();
+    loadContactsTable();
+    loadSettings();
+    loadLegalContent();
+  };
+</script>
+
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "buildCommand": "echo 'Static site - no build needed'",
+  "outputDirectory": ".",
+  "routes": [
+    {
+      "src": "/admin",
+      "dest": "/admin.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}

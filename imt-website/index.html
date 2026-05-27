@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Institute of Modern Technology — Empowering communities through education, digital literacy, and technology-driven growth." />
+  <meta name="keywords" content="IMT, Institute of Modern Technology, scholarship, technology, education, digital literacy" />
+  <meta property="og:title" content="Institute of Modern Technology" />
+  <meta property="og:description" content="Empowering the future through knowledge, technology, and innovation." />
+  <meta property="og:type" content="website" />
+  <title>Institute of Modern Technology</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- ANNOUNCEMENT BAR -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="announcement-bar" class="hidden" style="background:#0a1628; color:#fff;">
+  <span class="ann-text" id="ann-text">Loading announcement...</span>
+  <a class="ann-cta" id="ann-cta" href="#" target="_blank">Learn More</a>
+  <button class="ann-close" id="ann-close" aria-label="Close">×</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- DESKTOP NAVBAR -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-brand" onclick="showFullPage()" style="cursor:pointer;" title="Back to full site">
+    <span class="nav-brand-name">Institute of Modern Technology</span>
+    <span class="nav-brand-tag">Est. — Digital Era</span>
+  </div>
+  <!-- Desktop focus indicator — shown when a section is focused -->
+  <div id="desktop-focus-bar" style="display:none;">
+    <button class="desktop-back-btn" onclick="showFullPage()">← View All</button>
+    <span class="desktop-focus-label" id="desktop-focus-label">Section</span>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a class="nav-link active" href="#hero"     data-section="hero">Home</a></li>
+    <li><a class="nav-link"        href="#mission"  data-section="mission">Mission</a></li>
+    <li><a class="nav-link"        href="#programs" data-section="programs">Programs</a></li>
+    <li><a class="nav-link"        href="#about"    data-section="about">About</a></li>
+    <li><a class="nav-link"        href="#moments"  data-section="moments">Moments</a></li>
+    <li><a class="nav-link"        href="#posts"    data-section="posts">Posts</a></li>
+    <li><a class="nav-link nav-cta" href="#contact" data-section="contact">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- MOBILE BOTTOM NAVBAR -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<nav id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <div class="mob-nav-item active" data-section="hero">
+    <span class="mob-icon">🏠</span>
+    <span class="mob-label">Home</span>
+  </div>
+  <div class="mob-nav-item" data-section="programs">
+    <span class="mob-icon">📚</span>
+    <span class="mob-label">Programs</span>
+  </div>
+  <div class="mob-nav-item" data-section="about">
+    <span class="mob-icon">🏛️</span>
+    <span class="mob-label">About</span>
+  </div>
+  <div class="mob-nav-item" data-section="moments">
+    <span class="mob-icon">🖼️</span>
+    <span class="mob-label">Moments</span>
+  </div>
+  <div class="mob-nav-item" data-section="contact">
+    <span class="mob-icon">✉️</span>
+    <span class="mob-label">Contact</span>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- MOBILE BACK BANNER (shows when a section is focused)      -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="mobile-back-banner" style="display:none;">
+  <button class="back-home-btn" onclick="showFullPage()">
+    <span class="back-arrow">←</span> Home
+  </button>
+  <span class="back-section-label" id="mobile-back-label">Section</span>
+  <div style="width:60px;"></div><!-- spacer to center label -->
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- HERO SECTION -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Transforming Lives Through Knowledge</div>
+      <h1 class="hero-title">
+        Institute of<br>
+        <em>Modern Technology</em>
+      </h1>
+      <p class="hero-subtitle">
+        Empowering communities through education, digital literacy, and
+        technology-driven growth. Building tomorrow's leaders — today.
+      </p>
+      <div class="hero-actions">
+        <a href="#programs" class="btn-primary">Explore Programs</a>
+        <a href="#about"    class="btn-outline">About Us →</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-badge">🏆 Scholarship Programs Available</div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🎓</div>
+        <div class="hero-card-title">Merit-Based Scholarships</div>
+        <div class="hero-card-text">Rank-based financial support for deserving students</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">💻</div>
+        <div class="hero-card-title">Digital Literacy Programs</div>
+        <div class="hero-card-text">Technology awareness for every generation</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🌐</div>
+        <div class="hero-card-title">Tech Consultancy</div>
+        <div class="hero-card-text">Expert guidance for digital transformation</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- MISSION & VISION SECTION -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="mission" class="section section-light">
+  <div class="section-inner">
+    <div class="mv-grid">
+      <div class="mv-content reveal">
+        <div class="section-header">
+          <div class="section-label">Our Purpose</div>
+          <h2 class="section-title">Mission &amp;<br>Vision</h2>
+          <p class="section-subtitle">
+            At IMT, we believe that education and technology are the twin engines of
+            human progress. Our mission is to democratize access to quality knowledge,
+            bridge the digital divide, and cultivate a generation of critical thinkers
+            and innovators ready to shape tomorrow's world.
+          </p>
+        </div>
+        <div class="mv-pillars">
+          <div class="mv-pillar reveal reveal-delay-1">
+            <div class="mv-pillar-icon">📈</div>
+            <div class="mv-pillar-title">Educational Growth</div>
+            <div class="mv-pillar-text">Fostering continuous learning ecosystems that uplift every learner.</div>
+          </div>
+          <div class="mv-pillar reveal reveal-delay-2">
+            <div class="mv-pillar-icon">⚙️</div>
+            <div class="mv-pillar-title">Technology First</div>
+            <div class="mv-pillar-text">Integrating modern tools to prepare students for the digital age.</div>
+          </div>
+          <div class="mv-pillar reveal reveal-delay-3">
+            <div class="mv-pillar-icon">💡</div>
+            <div class="mv-pillar-title">Innovation Culture</div>
+            <div class="mv-pillar-text">Encouraging creative problem-solving and entrepreneurial thinking.</div>
+          </div>
+          <div class="mv-pillar reveal reveal-delay-4">
+            <div class="mv-pillar-icon">🌍</div>
+            <div class="mv-pillar-title">Social Impact</div>
+            <div class="mv-pillar-text">Creating positive, lasting change in the communities we serve.</div>
+          </div>
+        </div>
+      </div>
+      <div class="mv-vision-block reveal reveal-delay-2">
+        <div class="mv-vision-label">Our Vision 2030</div>
+        <p class="mv-vision-text">
+          "To become a beacon of educational excellence and technological empowerment —
+          where every student, regardless of economic background, gains the skills and
+          confidence to thrive in a rapidly evolving digital world."
+        </p>
+        <div class="mv-stats">
+          <div>
+            <div class="mv-stat-num">500+</div>
+            <div class="mv-stat-label">Students Supported</div>
+          </div>
+          <div>
+            <div class="mv-stat-num">12+</div>
+            <div class="mv-stat-label">Programs Running</div>
+          </div>
+          <div>
+            <div class="mv-stat-num">5+</div>
+            <div class="mv-stat-label">Years of Impact</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- OUR PROGRAMS SECTION -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="programs" class="section">
+  <div class="section-inner">
+    <div class="section-header centered reveal">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Our Programs</h2>
+      <p class="section-subtitle">
+        Carefully designed initiatives to empower students, bridge knowledge gaps,
+        and foster a technology-first mindset across all age groups and backgrounds.
+      </p>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card reveal reveal-delay-1">
+        <div class="program-icon">🏅</div>
+        <h3 class="program-title">Scholarship for Talented Students</h3>
+        <p class="program-desc">
+          We identify and support financially disadvantaged yet academically brilliant
+          students, providing them full or partial scholarships to continue their
+          education without financial barriers.
+        </p>
+        <a href="#contact" class="btn-card">Apply Now →</a>
+      </div>
+      <div class="program-card reveal reveal-delay-2">
+        <div class="program-icon">📝</div>
+        <h3 class="program-title">Scholarship Examination System</h3>
+        <p class="program-desc">
+          A transparent, merit-based examination platform where students compete for
+          rank-based monetary rewards, certificates, and recognition — encouraging
+          academic excellence at every level.
+        </p>
+        <a href="#contact" class="btn-card">Register →</a>
+      </div>
+      <div class="program-card reveal reveal-delay-3">
+        <div class="program-icon">🖥️</div>
+        <h3 class="program-title">Computer &amp; Technology Consultancy</h3>
+        <p class="program-desc">
+          Professional technology advisory services for individuals, institutions, and
+          small businesses — from software guidance and hardware recommendations to
+          complete digital strategy planning.
+        </p>
+        <a href="#contact" class="btn-card">Learn More →</a>
+      </div>
+      <div class="program-card reveal reveal-delay-1">
+        <div class="program-icon">🛠️</div>
+        <h3 class="program-title">Educational Support &amp; Skill Development</h3>
+        <p class="program-desc">
+          Hands-on workshops, tutoring sessions, and practical skill-building courses
+          designed to bridge the gap between academic theory and real-world
+          professional demands.
+        </p>
+        <a href="#contact" class="btn-card">Enroll →</a>
+      </div>
+      <div class="program-card reveal reveal-delay-2">
+        <div class="program-icon">🌐</div>
+        <h3 class="program-title">Digital Literacy &amp; Technology Awareness</h3>
+        <p class="program-desc">
+          Community-focused campaigns and workshops to raise awareness about the internet,
+          cybersecurity, digital tools, and responsible technology use — reaching
+          students, parents, and educators alike.
+        </p>
+        <a href="#contact" class="btn-card">Join Program →</a>
+      </div>
+      <div class="program-card reveal reveal-delay-3">
+        <div class="program-icon">🤝</div>
+        <h3 class="program-title">Community Development &amp; Outreach</h3>
+        <p class="program-desc">
+          Partnering with local organizations, schools, and government bodies to run
+          impactful educational camps, free digital workshops, and awareness drives
+          in underserved communities.
+        </p>
+        <a href="#contact" class="btn-card">Partner With Us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- ABOUT US SECTION -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="about" class="section section-light">
+  <div class="section-inner">
+    <div class="about-layout">
+      <div class="about-visual reveal">
+        <div class="about-img-placeholder">
+          <span>🏛️</span>
+          <p>Institute of Modern Technology</p>
+        </div>
+        <div class="about-badge-float">
+          <div class="about-badge-num">IMT</div>
+          <div class="about-badge-label">Est. Digital Era</div>
+        </div>
+      </div>
+      <div class="about-content reveal reveal-delay-2">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">Built for the<br>Community</h2>
+        <p class="section-subtitle">
+          The Institute of Modern Technology (IMT) is a forward-thinking educational
+          and technology organization committed to creating meaningful impact in
+          society. We operate at the intersection of education, digital empowerment,
+          and community service.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon">🎯</div>
+            <div>
+              <div class="about-feature-title">Our Role in Society</div>
+              <div class="about-feature-text">
+                We serve as a bridge between traditional learning and modern digital
+                requirements, empowering students and professionals to adapt and excel
+                in an ever-changing technological landscape.
+              </div>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">💻</div>
+            <div>
+              <div class="about-feature-title">Technology-Driven Environment</div>
+              <div class="about-feature-text">
+                Our responsibility extends beyond the classroom — we are actively
+                building an ecosystem where technology is accessible, understood,
+                and leveraged by everyone in the community.
+              </div>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">📣</div>
+            <div>
+              <div class="about-feature-title">Spreading Digital Awareness</div>
+              <div class="about-feature-text">
+                Through campaigns, workshops, and outreach programs, we ensure
+                digital literacy reaches every corner of the communities we serve —
+                leaving no one behind in the digital revolution.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- MOMENTS / GALLERY SECTION -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="moments" class="section">
+  <div class="section-inner">
+    <div class="section-header centered reveal">
+      <div class="section-label">Our Journey</div>
+      <h2 class="section-title">Moments</h2>
+      <p class="section-subtitle">
+        A glimpse into our activities, events, and the memories we've created
+        together as a growing institute and community.
+      </p>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- Dynamic content from Firebase -->
+      <div class="gallery-empty">
+        <div class="empty-icon">🖼️</div>
+        <p>Gallery moments will appear here once added by the IMT</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- RECENT POSTS SECTION -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="posts" class="section section-light">
+  <div class="section-inner">
+    <div class="section-header centered reveal">
+      <div class="section-label">Stay Updated</div>
+      <h2 class="section-title">Recent Posts</h2>
+      <p class="section-subtitle">
+        Latest events, announcements, and insights from our institute and community.
+      </p>
+    </div>
+    <div class="posts-grid" id="posts-grid">
+      <!-- Dynamic content from Firebase -->
+      <div class="post-empty">
+        <div class="empty-icon">📰</div>
+        <p>Posts and announcements will appear here once published by the IMT</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- QUOTES SECTION — infinite ticker bar                       -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="quotes">
+  <div class="quotes-track" id="quotes-track">
+    <!-- filled by JS renderQuotesTicker() -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- CONTACT SECTION -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section id="contact" class="section">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <div class="contact-info reveal">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">
+          Whether you're a student, parent, partner, or supporter — we'd love to
+          hear from you. Reach out and let's build something meaningful together.
+        </p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div>
+            <div class="contact-detail-label">Address</div>
+            <div class="contact-detail-value">Institute of Modern Technology,<br>Your City, State, PIN</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-value">+91 00000 00000</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value">info@imtinstitute.org</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal reveal-delay-2">
+        <div id="contact-form-wrap">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name">Full Name</label>
+              <input type="text" id="cf-name" placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label for="cf-email">Email Address</label>
+              <input type="email" id="cf-email" placeholder="your@email.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-subject">Subject</label>
+            <input type="text" id="cf-subject" placeholder="How can we help?" />
+          </div>
+          <div class="form-group">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" placeholder="Tell us more about your inquiry..."></textarea>
+          </div>
+          <button class="btn-submit" onclick="submitContact()">Send Message</button>
+        </div>
+        <div class="form-success" id="form-success">
+          <div class="success-icon">✅</div>
+          <h3>Message Sent!</h3>
+          <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- FOOTER -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Institute of Modern Technology</div>
+        <div class="footer-brand-tag">Empowering the Digital Future</div>
+        <p class="footer-desc">
+          A community-driven institute committed to educational growth, digital literacy,
+          and technology-powered social impact for all.
+        </p>
+        <div class="footer-social">
+          <a class="social-link" href="#" aria-label="Facebook">f</a>
+          <a class="social-link" href="#" aria-label="Twitter">𝕏</a>
+          <a class="social-link" href="#" aria-label="Instagram">▣</a>
+          <a class="social-link" href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#mission">Mission &amp; Vision</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#moments">Moments</a></li>
+          <li><a href="#posts">Recent Posts</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Our Programs</h4>
+        <ul>
+          <li><a href="#programs">Scholarship Program</a></li>
+          <li><a href="#programs">Scholarship Examination</a></li>
+          <li><a href="#programs">Tech Consultancy</a></li>
+          <li><a href="#programs">Skill Development</a></li>
+          <li><a href="#programs">Digital Literacy</a></li>
+          <li><a href="#programs">Community Outreach</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">📍</span>
+          <span class="footer-contact-text">Institute of Modern Technology,<br>Your City, State, PIN</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">📞</span>
+          <span class="footer-contact-text">+91 00000 00000</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">✉️</span>
+          <span class="footer-contact-text">info@imtinstitute.org</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 Institute of Modern Technology. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#" onclick="openLegal('privacy')">Privacy Policy</a>
+        <a href="#" onclick="openLegal('terms')">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- POST MODAL -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="post-modal" onclick="closeModal(event, 'post-modal')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-type" id="modal-post-type"></div>
+        <h2 class="modal-title" id="modal-post-title"></h2>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect('post-modal')">×</button>
+    </div>
+    <img class="modal-img" id="modal-post-img" src="" alt="" style="display:none;" />
+    <div class="modal-body">
+      <p id="modal-post-content"></p>
+    </div>
+  </div>
+</div>
+
+<!-- LEGAL MODAL — decorated -->
+<div class="modal-overlay" id="legal-modal" onclick="closeModal(event,'legal-modal')">
+  <div class="modal-box legal-modal-box">
+    <!-- Coloured header -->
+    <div class="legal-modal-header">
+      <button class="legal-modal-close-top" onclick="closeModalDirect('legal-modal')" aria-label="Close">×</button>
+      <div class="legal-modal-badge">📄 IMT Official Document</div>
+      <h2 class="legal-modal-title-text" id="legal-modal-title">Privacy Policy</h2>
+      <div class="legal-modal-effective" id="legal-modal-effective">Effective Date: April 2026</div>
+    </div>
+    <!-- Scrollable body -->
+    <div class="legal-modal-body legal-content" id="legal-modal-body"></div>
+    <!-- Footer with understood button -->
+    <div class="legal-modal-footer">
+      <span class="legal-footer-note" id="legal-footer-note">Last updated: April 2026</span>
+      <button class="btn-understood" onclick="closeModalDirect('legal-modal')">
+        ✅ I Understood
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- FIREBASE SDK -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<script type="module">
+  import { initializeApp }       from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, collection, getDocs, query, orderBy, limit, where }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  import { addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  // ── Firebase Config ───────────────────────────────────────
+  // Replace these values with your actual Firebase config from
+  // Vercel Environment Variables or .env.local
+  const firebaseConfig = {
+    apiKey:            "AIzaSyBPJNy86aAv2B3jachXiCODWDVrRhkFQMY",
+    authDomain:        "imtweb.firebaseapp.com",
+    projectId:         "imtweb",
+    storageBucket:     "imtweb.firebasestorage.app",
+    messagingSenderId: "459377220353",
+    appId:             "1:459377220353:web:6a4246980883cfc80bd900",
+    measurementId:     "G-BH59V5EL4C"
+  };
+
+  let db = null;
+  try {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+    window._imt_db = db;
+    loadSiteData();
+  } catch (e) {
+    console.warn("Firebase error:", e);
+  }
+
+  // ── Load All Dynamic Data ─────────────────────────────────
+  async function loadSiteData() {
+    if (!db) return;
+    await Promise.all([
+      loadSettings(),
+      loadGallery(),
+      loadPosts(),
+      loadLegalContent()
+    ]);
+  }
+
+  // ── Settings (announcement + section visibility) ──────────
+  async function loadSettings() {
+    try {
+      const snap = await getDocs(query(collection(db, "settings"), limit(1)));
+      if (snap.empty) return;
+      const s = snap.docs[0].data();
+
+      // Announcement bar
+      if (s.announcementEnabled && s.announcementText) {
+        const bar = document.getElementById("announcement-bar");
+        bar.style.background = s.announcementColor || "#0a1628";
+        bar.style.color      = s.announcementTextColor || "#ffffff";
+        document.getElementById("ann-text").textContent = s.announcementText;
+        const ctaBtn = document.getElementById("ann-cta");
+        if (s.announcementCta) {
+          ctaBtn.textContent = s.announcementCta;
+          ctaBtn.href        = s.announcementUrl || "#";
+          ctaBtn.style.display = "inline-flex";
+        } else {
+          ctaBtn.style.display = "none";
+        }
+        bar.classList.remove("hidden");
+        document.body.classList.add("bar-visible");
+      }
+
+      // Section visibility — store on window so main.js can read it too
+      window._imt_settings = s;
+
+      // Hide sections the admin toggled off
+      if (s.galleryEnabled === false) {
+        const el = document.getElementById("moments");
+        if (el) el.style.display = "none";
+        // Remove from ALL_SECTIONS so focus-mode won't try to show it
+        if (window._imt_hiddenSections) window._imt_hiddenSections.push("moments");
+        else window._imt_hiddenSections = ["moments"];
+      }
+      if (s.postsEnabled === false) {
+        const el = document.getElementById("posts");
+        if (el) el.style.display = "none";
+        if (window._imt_hiddenSections) window._imt_hiddenSections.push("posts");
+        else window._imt_hiddenSections = ["posts"];
+      }
+    } catch (e) { console.error("Settings load error:", e); }
+  }
+
+  // ── Gallery ───────────────────────────────────────────────
+  async function loadGallery() {
+    try {
+      const q    = query(collection(db, "gallery"), orderBy("uploadDate", "desc"));
+      const snap = await getDocs(q);
+      const grid = document.getElementById("gallery-grid");
+      if (snap.empty) return;
+      grid.innerHTML = "";
+      snap.forEach(doc => {
+        const d = doc.data();
+        const item = document.createElement("div");
+        item.className = "gallery-item reveal";
+        const dateStr = d.uploadDate || "";
+        item.innerHTML = `
+          <img src="${escHtml(d.imageUrl || '')}" alt="${escHtml(d.title || '')}" loading="lazy"
+               onerror="this.parentElement.innerHTML='<div class=gallery-placeholder><span>🖼️</span></div>'" />
+          <div class="gallery-overlay">
+            <div class="gallery-info">
+              <h4>${escHtml(d.title || 'Untitled')}</h4>
+              <span>${escHtml(dateStr)}</span>
+            </div>
+          </div>`;
+        grid.appendChild(item);
+      });
+      if (window.observeReveal) observeReveal();
+    } catch (e) { console.error("Gallery load error:", e); }
+  }
+
+  // ── Posts ─────────────────────────────────────────────────
+  async function loadPosts() {
+    try {
+      const q    = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+      const snap = await getDocs(q);
+      const grid = document.getElementById("posts-grid");
+      if (snap.empty) return;
+      grid.innerHTML = "";
+      snap.forEach(doc => {
+        const d = doc.data();
+        const badgeMap   = { event:"badge-event 🎪 Event", blog:"badge-blog ✍️ Blog", announce:"badge-announce 📢 Announcement" };
+        const badgeParts = (badgeMap[d.type] || "badge-blog ✍️ Blog").split(" ");
+        const badgeClass = badgeParts[0];
+        const badgeText  = badgeParts.slice(1).join(" ");
+        const hasImg     = d.imageUrl && d.type !== "blog";
+        const card       = document.createElement("div");
+        card.className   = "post-card reveal";
+        card.innerHTML   = `
+          ${hasImg ? `<div class="post-thumb"><img src="${escHtml(d.imageUrl)}" alt="${escHtml(d.title||'')}" loading="lazy"
+            onerror="this.parentElement.innerHTML='<div class=post-thumb-placeholder>📰</div>'" /></div>` : ''}
+          <div class="post-body">
+            <span class="post-type-badge ${badgeClass}">${badgeText}</span>
+            <h3 class="post-title">${escHtml(d.title || 'Untitled')}</h3>
+            <p class="post-preview">${escHtml(d.preview || d.content?.slice(0,150) || '')}</p>
+            <button class="btn-read-more" onclick="openPost(${JSON.stringify({
+              title:d.title, type:badgeText, content:d.content, imageUrl:hasImg?d.imageUrl:''
+            }).replace(/"/g,'&quot;')})">Read More →</button>
+          </div>`;
+        grid.appendChild(card);
+      });
+      if (window.observeReveal) observeReveal();
+    } catch (e) { console.error("Posts load error:", e); }
+  }
+
+  // ── Legal Content from Firestore ──────────────────────────
+  async function loadLegalContent() {
+    try {
+      const snap = await getDocs(collection(db, "legal"));
+      snap.forEach(doc => {
+        const d = doc.data();
+        // Store in window so main.js openLegal() can read it
+        if (!window._imt_legal) window._imt_legal = {};
+        window._imt_legal[doc.id] = d; // id = "privacy" or "terms"
+      });
+    } catch(e) { console.error("Legal load error:", e); }
+  }
+
+  // ── Contact Form ──────────────────────────────────────────
+  window.submitContact = async function () {
+    const name    = document.getElementById("cf-name").value.trim();
+    const email   = document.getElementById("cf-email").value.trim();
+    const subject = document.getElementById("cf-subject").value.trim();
+    const message = document.getElementById("cf-message").value.trim();
+    if (!name||!email||!subject||!message) { showToast("Please fill in all fields.","error"); return; }
+    if (!email.includes("@"))              { showToast("Please enter a valid email.","error"); return; }
+    if (db) {
+      try { await addDoc(collection(db,"contacts"),{name,email,subject,message,createdAt:new Date()}); }
+      catch(e) { console.error(e); }
+    }
+    document.getElementById("contact-form-wrap").style.display = "none";
+    document.getElementById("form-success").style.display      = "block";
+    showToast("Message sent successfully!","success");
+  };
+
+  function escHtml(str) {
+    if (!str) return "";
+    return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;").replace(/'/g,"&#039;");
+  }
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- MAIN JS (non-module) -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
